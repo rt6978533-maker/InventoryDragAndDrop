@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TestItemsOne 2
   m_EditorClassIdentifier: Assembly-CSharp::Inventory.InventoryItems
   ID: 2
-  Name: Wall
+  Name: Apple

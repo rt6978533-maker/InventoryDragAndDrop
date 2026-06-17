@@ -119,6 +119,81 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &438160705
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 438160706}
+  - component: {fileID: 438160708}
+  - component: {fileID: 438160707}
+  m_Layer: 5
+  m_Name: DragPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &438160706
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438160705}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 686533677}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0.000061035156}
+  m_SizeDelta: {x: -1814.7804, y: -975.3444}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &438160707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438160705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &438160708
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438160705}
+  m_CullTransparentMesh: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,6 +429,7 @@ GameObject:
   - component: {fileID: 686533680}
   - component: {fileID: 686533679}
   - component: {fileID: 686533678}
+  - component: {fileID: 686533683}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -374,6 +450,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1663928737}
+  - {fileID: 438160706}
   m_Father: {fileID: 1998095712}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -394,9 +471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory.InventoryRender
   _inventoryData: {fileID: 686533680}
-  _inventoryLogic: {fileID: 686533679}
-  _prefabCreate: {fileID: 344430458276814614, guid: d9240138cfd2d6a4bbbf3021dfdfb464, type: 3}
-  _parentContext: {fileID: 1663928737}
+  _inventoryFabric: {fileID: 686533683}
 --- !u!114 &686533679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,16 +499,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory.InventoryData
   Data:
+  - {fileID: 11400000, guid: dbd97c0366ad0f348afde31344a81a1d, type: 2}
+  - {fileID: 11400000, guid: 1608ff6a7f3eddf4b8a5a7892aba3bc2, type: 2}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 11400000, guid: dbd97c0366ad0f348afde31344a81a1d, type: 2}
   - {fileID: 0}
+  - {fileID: 11400000, guid: e214aaeda786d5e43ada63cd0adb06b3, type: 2}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: e214aaeda786d5e43ada63cd0adb06b3, type: 2}
+  - {fileID: 11400000, guid: 1608ff6a7f3eddf4b8a5a7892aba3bc2, type: 2}
   - {fileID: 0}
 --- !u!114 &686533681
 MonoBehaviour:
@@ -473,6 +548,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 686533676}
   m_CullTransparentMesh: 1
+--- !u!114 &686533683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686533676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 051288553a444074c92baaebf7530de3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryFarbicItems
+  _prefab: {fileID: 344430458276814614, guid: d9240138cfd2d6a4bbbf3021dfdfb464, type: 3}
+  _contentParent: {fileID: 1663928737}
+  _inventoryLogic: {fileID: 686533679}
+  _dragPanel: {fileID: 438160706}
 --- !u!1 &1226063776
 GameObject:
   m_ObjectHideFlags: 0

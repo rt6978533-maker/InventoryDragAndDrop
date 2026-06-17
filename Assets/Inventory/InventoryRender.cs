@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace Inventory
 {
@@ -8,12 +7,10 @@ namespace Inventory
     public class InventoryRender : MonoBehaviour
     {
         [SerializeField] private InventoryData _inventoryData;
-        [SerializeField] private InventoryLogic _inventoryLogic;
 
-        [SerializeField] private InventoryItemsHandler _prefabCreate;
-        [SerializeField] private Transform _parentContext;
+        [SerializeField] private InventoryFabric _inventoryFabric;
 
-        private InventoryItemsHandler[] _bufferHandler;
+        private IInventoryItems[] _bufferHandler;
 
         private void Start() => UpdateInventory();
 
@@ -22,27 +19,30 @@ namespace Inventory
             if (_bufferHandler != null && _bufferHandler.Length > 0)
             {
                 foreach (var item in _bufferHandler)
-                {
-                    Destroy(item.gameObject);
-                }
+                    item.Dispose();
             }
         }
 
         public void CreateInventory()
         {
-            int length = _inventoryData.Data.Count;
-            if (_inventoryData == null || length == 0) {
-                _bufferHandler = new InventoryItemsHandler[0];
-                return;
-            }
             ClearInventory();
 
-            _bufferHandler = new InventoryItemsHandler[length];
+            if (_inventoryData == null)
+            {
+                Debug.LogError("[InventoryRender] _inventoryData is null.");
+                return;
+            }
+            int length = _inventoryData.Data.Count;
+            if (length == 0) {
+                _bufferHandler = new IInventoryItems[0];
+                return;
+            }
+
+            _bufferHandler = new IInventoryItems[length];
 
             for (int index = 0; index < length; index++)
             {
-                _bufferHandler[index] = Instantiate(_prefabCreate, _parentContext.transform);
-                _bufferHandler[index].Init(_inventoryLogic, index);
+                _bufferHandler[index] = _inventoryFabric.Create(index);
             }
         }
 
